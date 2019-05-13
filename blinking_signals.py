@@ -50,7 +50,7 @@ def NoInternet():
     GPIO.output(YELLOW_LED, GPIO.LOW)
     GPIO.output(RED_LED, GPIO.LOW)
 
-def BlinkbreakLoop():
+def BlinkBreakLoop():
     GPIO.output(RED_LED, GPIO.HIGH)
     GPIO.output(YELLOW_LED, GPIO.LOW)
     time.sleep(5)
@@ -75,3 +75,17 @@ def BlinkFifteenMinutes():
         time.sleep(1)
         GPIO.output(RED_LED, GPIO.LOW)
         time.sleep(1)
+
+SetUp()
+time.sleep(1)
+Blink401()
+time.sleep(1)
+Blinkbreakloop()
+time.sleep(1)
+Blink404()
+time.sleep(1)
+NoInternet()
+time.sleep(1)
+BlinkServerError()
+time.sleep(1)
+BlinkFifteenMinutes()
