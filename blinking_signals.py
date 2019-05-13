@@ -22,7 +22,7 @@ def SetUp():
         time.sleep(0.1)
     GPIO.output(BUTTON_out,GPIO.HIGH)
 
-def blink401():
+def Blink401():
     for i in range(2):
         GPIO.output(RED_LED, GPIO.HIGH)
         GPIO.output(YELLOW_LED, GPIO.HIGH)
@@ -31,7 +31,7 @@ def blink401():
         GPIO.output(YELLOW_LED, GPIO.LOW)
         time.sleep(0.5)
 
-def blink404():
+def Blink404():
     for i in range(4):
         GPIO.output(RED_LED, GPIO.HIGH)
         GPIO.output(YELLOW_LED, GPIO.HIGH)
@@ -50,13 +50,13 @@ def NoInternet():
     GPIO.output(YELLOW_LED, GPIO.LOW)
     GPIO.output(RED_LED, GPIO.LOW)
 
-def blinkbreakLoop():
+def BlinkbreakLoop():
     GPIO.output(RED_LED, GPIO.HIGH)
     GPIO.output(YELLOW_LED, GPIO.LOW)
     time.sleep(5)
     GPIO.output(RED_LED, GPIO.LOW)
 
-def blinkServerError():
+def BlinkServerError():
     for i in range(2):
         GPIO.output(RED_LED, GPIO.HIGH)
         time.sleep(0.5)
@@ -69,7 +69,7 @@ def blinkServerError():
         GPIO.output(YELLOW_LED, GPIO.LOW)
         time.sleep(0.5)
 
-def blinkFifteenMinutes():
+def BlinkFifteenMinutes():
     for i in range(2):
         GPIO.output(RED_LED, GPIO.HIGH)
         time.sleep(1)

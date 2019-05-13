@@ -1,25 +1,25 @@
 from blinking_signals import SetUp
-from blinking_signals import blink401 
-from blinking_signals import blinkbreakloop 
-from blinking_signals import blink404 
+from blinking_signals import Blink401
+from blinking_signals import Blinkbreakloop
+from blinking_signals import Blink404 
 from blinking_signals import NoInternet 
-from blinking_signals import blinkServerError 
-from blinking_signals import blinkFifteenMinutes
+from blinking_signals import BlinkServerError 
+from blinking_signals import BlinkFifteenMinutes
 
 import time
 SetUp()
 time.sleep(1)
-blink401()
+Blink401()
 time.sleep(1)
-blinkbreakloop()
+Blinkbreakloop()
 time.sleep(1)
-blink404()
+Blink404()
 time.sleep(1)
 NoInternet()
 time.sleep(1)
-blinkServerError()
+BlinkServerError()
 time.sleep(1)
-blinkFifteenMinutes()
+BlinkFifteenMinutes()
 
 
 
