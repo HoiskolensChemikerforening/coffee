@@ -44,6 +44,7 @@ while True:
                 GPIO.output(YELLOW_LED,GPIO.HIGH)
                 r = requests.post(url, data=json.dumps(payload), headers=headers, timeout=5)
                 status_code = r.status_code
+                print(status_code)
                 GPIO.output(YELLOW_LED,GPIO.LOW)
                 if status_code == 201:
                     print("success")
