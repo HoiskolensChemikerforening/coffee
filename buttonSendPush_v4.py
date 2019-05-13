@@ -8,7 +8,7 @@ import json
 import simplejson
 from params import topic, notification_key, website_url
 
-from blinking_signals import SetUp, blink401, blinkbreakloop, blink404 NoInternet, blinkServerError, blinkFifteenMinutes
+from blinking_signals import SetUp#, blink401, blinkbreakloop, blink404 NoInternet, blinkServerError, blinkFifteenMinutes
 # defining of parameters and function
 ###############################################
 
