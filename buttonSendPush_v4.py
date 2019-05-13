@@ -50,7 +50,7 @@ while True:
                     blink401()
                 elif status_code == 404:
                     blink404()
-                elif int(status_code) >=500
+                elif int(status_code) >=500:
                     blinkServerError()
             else:
                 GPIO.output(YELLOW_LED,GPIO.LOW)
