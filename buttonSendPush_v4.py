@@ -8,7 +8,7 @@ import json
 import simplejson
 from params import topic, notification_key, website_url
 
-from blinking_signals import SetUp#, blink401, BlinkBreakloop, blink404 NoInternet, blinkServerError, blinkFifteenMinutes
+from blinking_signals import SetUp, Blink401, Blink404, NoInternet, BreakingLoop, BlinkServerError, BlinkFifteenMinutes
 # defining of parameters and function
 ###############################################
 
@@ -47,19 +47,19 @@ while True:
                 if status_code == 201:
                     pass
                 elif status_code == 401:
-                    blink401()
+                    Blink401()
                 elif status_code == 404:
-                    blink404()
+                    Blink404()
                 elif int(status_code) >=500:
-                    blinkServerError()
+                    BlinkServerError()
             else:
                 GPIO.output(YELLOW_LED,GPIO.LOW)
-                blinkFifteenMinutes()
+                BlinkFifteenMinutes()
     except Exception as e:
         print(e)
-        filename = str(datetime.now().date())
+        filename = "errors/" + str(datetime.now().date()) + "-" + str(datetime.now().microsecond) 
         logf = open(filename, "w")
         logf.write('An exceptional thing happed - %s' % e)
-        brinkbreakloop()
+        BreakingLoop()
         GPIO.cleanup()
         break
