@@ -56,6 +56,7 @@ while True:
                 elif int(status_code) >=500:
                     print("Server error")
                     BlinkServerError()
+                time.sleep(5)
             else:
                 print("15 minutes error")
                 GPIO.output(YELLOW_LED,GPIO.LOW)
