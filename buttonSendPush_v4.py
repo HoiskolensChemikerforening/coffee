@@ -17,7 +17,7 @@ BUTTON_in = 19
 RED_LED = 16
 YELLOW_LED = 12
 
-url = "https://hc.ntnu.no/web_push/send"
+url = "https://hc.ntnu.no/web_push/send/"
 pressed_time = datetime.now() + timedelta(-30)
 
 payload = {
