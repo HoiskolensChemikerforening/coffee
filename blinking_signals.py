@@ -32,10 +32,10 @@ def Blink401():
         time.sleep(0.5)
 
 def Blink404():
-    for i in range(10):
+    for i in range(5):
         GPIO.output(RED_LED, GPIO.HIGH)
         GPIO.output(YELLOW_LED, GPIO.HIGH)
-        time.sleep(0.1)
+        time.sleep(0.2)
         GPIO.output(RED_LED, GPIO.LOW)
         GPIO.output(YELLOW_LED, GPIO.LOW)
 
