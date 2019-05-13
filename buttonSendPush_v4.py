@@ -42,7 +42,7 @@ while True:
                 pressed_time = datetime.now()
                 GPIO.output(YELLOW_LED,GPIO.HIGH)
                 r = requests.post(url, data=json.dumps(payload), headers=headers, timeout=300)
-                status_code = 201 # r.status_code
+                r.status_code
                 print(status_code)
                 time.sleep(2)
                 GPIO.output(YELLOW_LED,GPIO.LOW)
