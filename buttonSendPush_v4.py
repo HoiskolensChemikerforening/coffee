@@ -30,7 +30,6 @@ headers = {
 
 # Main part of the script
 #######################################
-payload['notification_key'] = "hh"
 SetUp()
 print("Running")
 while True:
@@ -42,7 +41,7 @@ while True:
             if elapsed_time.total_seconds() > 900:
                 pressed_time = datetime.now()
                 GPIO.output(YELLOW_LED,GPIO.HIGH)
-                r = requests.post(url, data=json.dumps(payload), headers=headers, timeout=5)
+                r = requests.post(url, data=json.dumps(payload), headers=headers, timeout=300)
                 status_code = r.status_code
                 print(status_code)
                 GPIO.output(YELLOW_LED,GPIO.LOW)
