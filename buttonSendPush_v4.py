@@ -42,9 +42,9 @@ while True:
                 pressed_time = datetime.now()
                 GPIO.output(YELLOW_LED,GPIO.HIGH)
                 r = requests.post(url, data=json.dumps(payload), headers=headers, timeout=5)
-		        status_code = r.status_code
+                status_code = r.status_code
                 GPIO.output(YELLOW_LED,GPIO.LOW)
-		        if status_code == 201:
+                if status_code == 201:
                     pass
                 elif status_code == 401:
                     blink401()
@@ -60,5 +60,5 @@ while True:
         logf = open(filename, "w")
         logf.write('An exceptional thing happed - %s' % e)
         brinkbreakloop()
-	    GPIO.cleanup()
-	    break
+        GPIO.cleanup()
+        break
