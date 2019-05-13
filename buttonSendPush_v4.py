@@ -33,28 +33,28 @@ headers = {
 url = "dd"
 SetUp()
 while True:
-    try:
-    	GPIO.output(BUTTON_out, GPIO.HIGH)
-        input_value = GPIO.input(BUTTON_in)
-        if input_value:
-            elapsed_time = pressed_time - datetime.now()
-            if elapsed_time.total_seconds() > 900:
-                pressed_time = datetime.now()
-                GPIO.output(YELLOW_LED,GPIO.HIGH)
-                r = requests.post(url, data=json.dumps(payload), headers=headers, timeout=5)
-                status_code = r.status_code
-                GPIO.output(YELLOW_LED,GPIO.LOW)
-                if status_code == 201:
-                    pass
-                elif status_code == 401:
-                    Blink401()
-                elif status_code == 404:
-                    Blink404()
-                elif int(status_code) >=500:
-                    BlinkServerError()
-            else:
-                GPIO.output(YELLOW_LED,GPIO.LOW)
-                BlinkFifteenMinutes()
+    # try:
+    GPIO.output(BUTTON_out, GPIO.HIGH)
+    input_value = GPIO.input(BUTTON_in)
+    if input_value:
+        elapsed_time = pressed_time - datetime.now()
+        if elapsed_time.total_seconds() > 900:
+            pressed_time = datetime.now()
+            GPIO.output(YELLOW_LED,GPIO.HIGH)
+            r = requests.post(url, data=json.dumps(payload), headers=headers, timeout=5)
+            status_code = r.status_code
+            GPIO.output(YELLOW_LED,GPIO.LOW)
+            if status_code == 201:
+                pass
+            elif status_code == 401:
+                Blink401()
+            elif status_code == 404:
+                Blink404()
+            elif int(status_code) >=500:
+                BlinkServerError()
+        else:
+            GPIO.output(YELLOW_LED,GPIO.LOW)
+            BlinkFifteenMinutes()
     # except Exception as e:
     #     filename = "errors/" + str(datetime.now().date()) + "-" + str(datetime.now().microsecond) 
     #     logf = open(filename, "w")
