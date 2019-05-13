@@ -37,7 +37,7 @@ while True:
     	GPIO.output(BUTTON_out, GPIO.HIGH)
         input_value = GPIO.input(BUTTON_in)
         if input_value:
-            elapsed_time =  pressed_time - datetime.now()
+            elapsed_time =  datetime.now() - pressed_time
             if elapsed_time.total_seconds() > 900:
                 pressed_time = datetime.now()
                 GPIO.output(YELLOW_LED,GPIO.HIGH)
