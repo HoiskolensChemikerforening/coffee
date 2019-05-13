@@ -57,7 +57,7 @@ while True:
                 BlinkFifteenMinutes()
     except Exception as e:
         print(e)
-        filename = "errors/" + str(datetime.now().date()) + "-" + str(datetime.now().microsecond) 
+        filename = "error-" + str(datetime.now().date()) + "-" + str(datetime.now().microsecond) 
         logf = open(filename, "w")
         logf.write('An exceptional thing happed - %s' % e)
         BreakingLoop()
