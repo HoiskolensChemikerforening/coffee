@@ -56,9 +56,9 @@ while True:
                 GPIO.output(YELLOW_LED,GPIO.LOW)
                 BlinkFifteenMinutes()
     except Exception as e:
-        filename = "error" #+ str(datetime.now().date()) + "-" + str(datetime.now().microsecond) 
+        filename = "errors/" + str(datetime.now().date()) + "-" + str(datetime.now().microsecond) 
         logf = open(filename, "w")
-        logf.write('An exceptional thing happed - %s' % e)
+        logf.write('An exceptional thing happed\n %s \n' % e)
         BreakingLoop()
         GPIO.cleanup()
         break
