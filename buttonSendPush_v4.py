@@ -6,7 +6,7 @@ import time
 import requests
 import json
 import simplejson
-from params import topic, notification_key, website_url
+from params import topic, notification_key
 
 from blinking_signals import SetUp, Blink401, Blink404, NoInternet, BreakingLoop, BlinkServerError, BlinkFifteenMinutes
 # defining of parameters and function
@@ -17,7 +17,7 @@ BUTTON_in = 19
 RED_LED = 16
 YELLOW_LED = 12
 
-url = website_url
+url = "https://hc.ntnu.no/web_push/send"
 pressed_time = datetime.now() + timedelta(-30)
 
 payload = {
@@ -41,7 +41,6 @@ while True:
             if elapsed_time.total_seconds() > 900:
                 pressed_time = datetime.now()
                 GPIO.output(YELLOW_LED,GPIO.HIGH)
-                print(payload)
                 r = requests.post(url, data=json.dumps(payload), headers=headers, timeout=300)
                 status_code = r.status_code
                 print(status_code)
