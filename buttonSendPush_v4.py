@@ -57,7 +57,7 @@ while True:
                     print("Server error")
                     BlinkServerError()
             else:
-                prin("15 minutes error")
+                print("15 minutes error")
                 GPIO.output(YELLOW_LED,GPIO.LOW)
                 BlinkFifteenMinutes()
     except requests.exceptions.ConnectionError:
