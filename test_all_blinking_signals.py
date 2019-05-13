@@ -1,6 +1,6 @@
 from blinking_signals import SetUp
 from blinking_signals import Blink401
-from blinking_signals import Blinkbreakloop
+from blinking_signals import BlinkBreakloop
 from blinking_signals import Blink404 
 from blinking_signals import NoInternet 
 from blinking_signals import BlinkServerError 
