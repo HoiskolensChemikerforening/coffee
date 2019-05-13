@@ -32,6 +32,7 @@ headers = {
 #######################################
 payload['notification_key'] = "hh"
 SetUp()
+print("Running")
 while True:
     try:
     	GPIO.output(BUTTON_out, GPIO.HIGH)
@@ -45,19 +46,25 @@ while True:
                 status_code = r.status_code
                 GPIO.output(YELLOW_LED,GPIO.LOW)
                 if status_code == 201:
-                    pass
+                    print("success")
                 elif status_code == 401:
+                    print(401)
                     Blink401()
                 elif status_code == 404:
+                    print(404)
                     Blink404()
                 elif int(status_code) >=500:
+                    print("Server error")
                     BlinkServerError()
             else:
+                prin("15 minutes error")
                 GPIO.output(YELLOW_LED,GPIO.LOW)
                 BlinkFifteenMinutes()
     except requests.exceptions.ConnectionError:
+        print("No internet")
         NoInternet()
     except Exception as e:
+        print("Breaking loop")
         filename = "errors/" + str(datetime.now().date()) + "-" + str(datetime.now().microsecond) 
         logf = open(filename, "w")
         logf.write('An exceptional thing happed\n %s \n' % e)
