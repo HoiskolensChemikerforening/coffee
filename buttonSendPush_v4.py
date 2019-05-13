@@ -76,7 +76,7 @@ while True:
         NoInternet()
     except Exception as e:
         print("Breaking loop")
-        filename = "/home/pi/coffee/Coffee-Button/errors/" + str(datetime.now().date()) + "-" + str(datetime.now().microsecond) 
+        filename = "/home/pi/Coffee-Button/errors/" + str(datetime.now().date()) + "-" + str(datetime.now().microsecond) 
         logf = open(filename, "w")
         logf.write('An exceptional thing happed\n %s \n' % e)
         BreakingLoop()
