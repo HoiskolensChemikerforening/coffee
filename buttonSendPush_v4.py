@@ -23,6 +23,7 @@ pressed_time = datetime.now() + timedelta(-30)
 payload = {
     "topic":topic,
     "notification_key":notification_key,
+    "date": str(datetime.now())
 }
 headers = {
     "Content-Type": "application/json",
