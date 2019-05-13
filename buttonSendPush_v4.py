@@ -56,7 +56,7 @@ while True:
                 GPIO.output(YELLOW_LED,GPIO.LOW)
                 blinkFifteenMinutes()
     except Exception as e:
-        filename = str(datetime.now())
+        filename = str(datetime.now().date())
         logf = open(filename, "w")
         logf.write('An exceptional thing happed - %s' % e)
         brinkbreakloop()
