@@ -76,9 +76,11 @@ while True:
         print("No internet")
         NoInternet()
     except Exception as e:
+        GPIO.output(YELLOW_LED,GPIO.LOW)
+        GPIO.output(RED_LED,GPIO.LOW)
         print("Breaking loop")
         filename = "/home/pi/Coffee-Button/errors/" + str(datetime.now().date()) + "-" + str(datetime.now().microsecond) 
-        logf = open(filename, "w")
+        logf = open(filename, "w+")
         logf.write('An exceptional thing happed\n %s \n' % e)
         BreakingLoop()
         GPIO.cleanup()
