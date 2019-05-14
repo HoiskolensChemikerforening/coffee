@@ -42,7 +42,7 @@ while True:
             if elapsed_time.total_seconds() > 900:
                 pressed_time = datetime.now()
                 GPIO.output(YELLOW_LED,GPIO.HIGH)
-                #r = requests.post(url, data=json.dumps(payload), headers=headers, timeout=300)
+                r = requests.post(url, data=json.dumps(payload), headers=headers, timeout=300)
                 status_code = r.status_code
                 print(status_code)
                 time.sleep(2)
