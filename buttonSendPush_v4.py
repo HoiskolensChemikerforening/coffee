@@ -80,11 +80,10 @@ while True:
         GPIO.output(RED_LED,GPIO.LOW)
         print("Breaking loop")
         
-        send_mail(e)
-
         filename = "/home/pi/coffee/errors/" + str(datetime.now().date()) + "-" + str(datetime.now().microsecond) 
         logf = open(filename, "w+")
         logf.write('An exceptional thing happed\n {} \n'.format(e))
         BreakingLoop()
+        send_mail(e)
         GPIO.cleanup()
         break
