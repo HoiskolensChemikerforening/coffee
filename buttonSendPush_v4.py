@@ -7,7 +7,7 @@ import requests
 import json
 import simplejson
 from params import topic, notification_key
-
+from send_mail import send_mail
 from blinking_signals import SetUp, Blink401, Blink404, NoInternet, BreakingLoop, BlinkServerError, BlinkFifteenMinutes
 # defining of parameters and function
 ###############################################
@@ -35,7 +35,7 @@ SetUp()
 print("Running")
 while True:
     try:
-    	GPIO.output(BUTTON_out, GPIO.HIGH)
+        GPIO.output(BUTTON_out, GPIO.HIGH)
         input_value = GPIO.input(BUTTON_in)
         if input_value:
             elapsed_time =  datetime.now() - pressed_time
@@ -79,9 +79,12 @@ while True:
         GPIO.output(YELLOW_LED,GPIO.LOW)
         GPIO.output(RED_LED,GPIO.LOW)
         print("Breaking loop")
+        
+        send_mail(e)
+
         filename = "/home/pi/coffee/errors/" + str(datetime.now().date()) + "-" + str(datetime.now().microsecond) 
         logf = open(filename, "w+")
-        logf.write('An exceptional thing happed\n %s \n' % e)
+        logf.write('An exceptional thing happed\n {} \n'.format(e))
         BreakingLoop()
         GPIO.cleanup()
         break
