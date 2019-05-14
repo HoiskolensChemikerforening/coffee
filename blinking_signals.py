@@ -52,16 +52,10 @@ def NoInternet():
 
 
 def BreakingLoop():
-    for i in range(2):
-        GPIO.output(RED_LED, GPIO.HIGH)
-        GPIO.output(YELLOW_LED, GPIO.LOW)
-        time.sleep(0.5)
-        GPIO.output(RED_LED, GPIO.LOW)
-        GPIO.output(YELLOW_LED, GPIO.HIGH)
-        time.sleep(0.5)
+    GPIO.output(RED_LED, GPIO.HIGH)
+    time.sleep(5)
     GPIO.output(YELLOW_LED, GPIO.LOW)
-    GPIO.output(RED_LED, GPIO.LOW)
-
+    
 def BlinkServerError():
     for i in range(2):
         GPIO.output(RED_LED, GPIO.HIGH)
