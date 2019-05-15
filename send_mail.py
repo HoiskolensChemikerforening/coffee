@@ -13,7 +13,7 @@ def send_mail(e):
     msg = EmailMessage()
     msg['Subject'] = 'En feil har skjedd med kaffeknappen'
     msg['From'] = EMAIL_ADDRESS
-    msg['To'] = 'eskild.emedd33@gmail.com'
+    msg['To'] = 'webkom@hc.ntnu.no'
 
     msg.set_content('Error')
     date = str(datetime.datetime.now())
