@@ -10,7 +10,7 @@ from blinking_signals import (
 import time
 
 if __name__ == "__main__":
-    Print("Setup")
+    print("Setup")
     SetUp()
     time.sleep(1)
     
