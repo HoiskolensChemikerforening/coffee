@@ -55,6 +55,7 @@ def BreakingLoop():
     GPIO.output(RED_LED, GPIO.HIGH)
     time.sleep(5)
     GPIO.output(YELLOW_LED, GPIO.LOW)
+    GPIO.cleanup()
     
 def BlinkServerError():
     for i in range(2):
