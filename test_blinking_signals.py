@@ -28,7 +28,7 @@ if __name__ == "__main__":
 
     print("No Internet")
     NoInternet()
-    time.sleep()
+    time.sleep(1)
 
     print("500 error")
     BlinkServerError()
