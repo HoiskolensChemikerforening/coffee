@@ -36,3 +36,6 @@ def send_mail(e):
         smtp.login(EMAIL_ADDRESS, EMAIL_PASSWORD)
         smtp.send_message(msg)
         print("E-post sendt")
+
+if __name__ == "__main__":
+    send_mail("Dette er en testmail fra raspberry PIen")

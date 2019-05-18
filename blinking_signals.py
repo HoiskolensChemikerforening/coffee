@@ -22,6 +22,17 @@ def SetUp():
         time.sleep(0.1)
     GPIO.output(BUTTON_out,GPIO.HIGH)
 
+def BlinkSuccess():
+    GPIO.output(YELLOW_LED,GPIO.LOW)
+    time.sleep(0.2)
+    GPIO.output(YELLOW_LED,GPIO.HIGH)
+    time.sleep(0.2)
+    GPIO.output(YELLOW_LED,GPIO.LOW)
+    time.sleep(0.2)
+    GPIO.output(YELLOW_LED,GPIO.HIGH)
+    time.sleep(0.2)
+    GPIO.output(YELLOW_LED,GPIO.LOW)
+
 def Blink401():
     for i in range(2):
         GPIO.output(RED_LED, GPIO.HIGH)
