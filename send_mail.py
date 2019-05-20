@@ -18,18 +18,7 @@ def send_mail(e):
     msg.set_content('Error')
     date = str(datetime.datetime.now())
     
-    msg.add_alternative("""\
-    <!DOCTYPE html>
-    <html>
-        <body>
-            <h4>Raspberry pi har sluttet å fungere</h4>
-            <h5>Avsluttet: {} </h5>
-            <p>
-            Feil melding: {} 
-            </p>
-        </body>
-    </html>
-    """.format(date, e), subtype='html')
+    msg.add_alternative("<!DOCTYPE html><html><body><h4>Raspberry pi har sluttet å fungere</h4><h5>Avsluttet: {} </h5><p>Feil melding: {} </p></body></html>".format(date, e), subtype='html')
 
 
     with smtplib.SMTP_SSL('smtp.gmail.com', 465) as smtp:
