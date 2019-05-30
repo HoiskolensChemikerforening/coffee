@@ -45,6 +45,7 @@ while True:
                 GPIO.output(YELLOW_LED,GPIO.HIGH)
                 
                 # The Http request from the PI to the server
+                payload["date"] = str(datetime.now())
                 r = requests.post(url, data=json.dumps(payload), headers=headers, timeout=300)
                 
                 status_code = r.status_code
@@ -57,7 +58,7 @@ while True:
                 if status_code == 201:
                     print("success")
                     BlinkSuccess()
-                    pressed_time = datetime.now()
+                    pressed_time = payload["date"]
                 elif status_code == 401:
                     print(401)
                     Blink401()
