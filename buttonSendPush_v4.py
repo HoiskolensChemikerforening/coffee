@@ -58,7 +58,7 @@ while True:
                 if status_code == 201:
                     print("success")
                     BlinkSuccess()
-                    pressed_time = payload["date"]
+                    pressed_time = datetime.now()
                 elif status_code == 401:
                     print(401)
                     Blink401()
