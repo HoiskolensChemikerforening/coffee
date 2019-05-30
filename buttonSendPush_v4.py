@@ -81,7 +81,8 @@ try:
         except requests.exceptions.ConnectionError:
             print("No internet")
             NoInternet()
-
+        except Exception as e:
+            raise Exception(e)
 except Exception as e:
     GPIO.output(YELLOW_LED,GPIO.LOW)
     GPIO.output(RED_LED,GPIO.LOW)
