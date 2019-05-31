@@ -16,8 +16,10 @@ def send_mail(e):
     msg['To'] = 'webkom@hc.ntnu.no'
 
     msg.set_content('Error')
-    date = str(datetime.datetime.now())
+    date = str(datetime.datetime.now() - datetime.timedelta(hours=1))
     
+    e = "Dette er en testmelding" if e = " name 'r' is not defined" else e
+
     msg.add_alternative("""\
     <!DOCTYPE html>
     <html>

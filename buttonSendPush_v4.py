@@ -38,14 +38,15 @@ try:
             GPIO.output(BUTTON_out, GPIO.HIGH)
             input_value = GPIO.input(BUTTON_in)
             if input_value:
-                elapsed_time =  datetime.now() - pressed_time
+                now = datetime.now() - timedelta(hours=1)
+                elapsed_time =  now - pressed_time
 
                 # Check that 15 minutes has passed since last press
                 if elapsed_time.total_seconds() > 900: 
                     GPIO.output(YELLOW_LED,GPIO.HIGH)
                     
                     # The Http request from the PI to the server
-                    payload["date"] = str(datetime.now())
+                    payload["date"] = str(datetime.now()- timedelta(hours=1))
                     r = requests.post(url, data=json.dumps(payload), headers=headers, timeout=300)
                     
                     status_code = r.status_code
@@ -58,7 +59,7 @@ try:
                     if status_code == 201:
                         print("success")
                         BlinkSuccess()
-                        pressed_time = datetime.now()
+                        pressed_time = datetime.now()- timedelta(hours=1)
                     elif status_code == 401:
                         print(401)
                         Blink401()
