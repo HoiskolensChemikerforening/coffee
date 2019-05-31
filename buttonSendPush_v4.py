@@ -8,7 +8,6 @@ try:
     import json
     import simplejson
     from params import topic, notification_key
-    from send_mail import send_mail
     from blinking_signals import SetUp, BlinkSuccess, Blink401, Blink404, NoInternet, BreakingLoop, BlinkServerError, BlinkFifteenMinutes
     # defining of parameters
     ###############################################
@@ -85,6 +84,10 @@ try:
             raise Exception(e)
             break
 except Exception as e:
+    from send_mail import send_mail
+    from blinking_signals import BreakingLoop
+    RED_LED = 16
+    YELLOW_LED = 12
     GPIO.output(YELLOW_LED,GPIO.LOW)
     GPIO.output(RED_LED,GPIO.LOW)
     print("Breaking loop")
