@@ -83,6 +83,7 @@ try:
             NoInternet()
         except Exception as e:
             raise Exception(e)
+            break
 except Exception as e:
     GPIO.output(YELLOW_LED,GPIO.LOW)
     GPIO.output(RED_LED,GPIO.LOW)
@@ -98,4 +99,4 @@ except Exception as e:
     send_mail(e)
     
     GPIO.cleanup()
-    break
+    
