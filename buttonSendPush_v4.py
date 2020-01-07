@@ -12,8 +12,8 @@ try:
     # defining of parameters
     ###############################################
 
-    BUTTON_out=5
-    BUTTON_in = 20
+    BUTTON_out=13
+    BUTTON_in = 19
     RED_LED = 16
     YELLOW_LED = 12
 
